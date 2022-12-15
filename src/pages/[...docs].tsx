@@ -1,13 +1,15 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { bundle } from "../lib/bundler/bundler";
 
 export async function getServerSideProps() {
+  const page = bundle(`# this is a markdown file`);
+  console.log(page);
   return { props: { name: "taran" } };
 }
 
 function Docs({ name }: InferGetServerSidePropsType<GetServerSideProps>) {
-
   const router = useRouter();
 
   const [owner, setOwner] = useState<string>("");
