@@ -11,27 +11,10 @@ import { Block, Flex } from "@cube-dev/ui-kit";
 import { getMdxContent } from "../lib/getMDXContent";
 import TableOfContents from "../components/TableOfContents";
 import { getConfig } from "../lib/getConfig";
+import { extractQueryParams } from "../utils/extractQueryParams";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  let repoOwner = "";
-  let repoName = "";
-  let pageName = "index";
-
-  if (context?.params?.docs?.length === 2) {
-    repoOwner = context?.params?.docs[0];
-    repoName = context?.params?.docs[1];
-  }
-
-  if (context?.params?.docs != null && context?.params?.docs?.length > 2) {
-    repoOwner = context?.params?.docs[0];
-    repoName = context?.params?.docs[1];
-    if (typeof context?.params?.docs === "string") {
-      pageName = context?.params?.docs[2];
-    } else {
-      pageName = context?.params?.docs.slice(2).join("/");
-    }
-  }
-
+  const { repoOwner, repoName, pageName } = extractQueryParams(context);
   const mdx = await getMdxContent(repoOwner, repoName, pageName);
   const config = await getConfig(repoOwner, repoName);
 
@@ -40,7 +23,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      homePage: JSON.stringify(page),
+      resultMDX: JSON.stringify(page),
       TOC,
       repoName,
       repoOwner,
@@ -49,7 +32,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 function Docs({
-  homePage,
+  resultMDX,
   TOC,
   repoName,
   repoOwner,
@@ -60,11 +43,11 @@ function Docs({
     router.push("404");
   }
 
-  let parsedName = JSON.parse(homePage);
+  let parsedPage = JSON.parse(resultMDX);
 
   const Component = useMemo(
-    () => getMDXComponent(parsedName.code),
-    [parsedName.code]
+    () => getMDXComponent(parsedPage.code),
+    [parsedPage.code]
   );
 
   return (
@@ -84,5 +67,3 @@ function Docs({
 }
 
 export default Docs;
-
-// https://github.com/staranbeer/blog

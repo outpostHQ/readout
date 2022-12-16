@@ -32,10 +32,12 @@ const TableOfContents = ({
       styles={{ position: "sticky", top: "1rem" }}
       width="16rem"
       flow="column"
-      gap="0.5rem"
+      gap="1rem"
       padding="0 1rem"
     >
-      <Flex gap="0.5rem" flow="column">
+      {" "}
+      <Link href={`${owner}/${repo}`}>Home</Link>
+      <Flex gap="1rem" flow="column">
         {navLinks.map((i) => {
           return (
             <Link
