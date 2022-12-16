@@ -1,0 +1,28 @@
+
+> readout@0.1.0 build /home/tarab/Documents/outpost/readout/packages/website
+> next build
+
+info  - Loaded env from /home/tarab/Documents/outpost/readout/packages/website/.env
+info  - Linting and checking validity of types...
+info  - Creating an optimized production build...
+info  - Compiled successfully
+info  - Collecting page data...
+info  - Generating static pages (0/3)
+info  - Generating static pages (3/3)
+info  - Finalizing page optimization...
+
+Route (pages)                              Size     First Load JS
+┌ ○ / (3829 ms)                            12.2 kB         169 kB
+├   /_app                                  0 B             157 kB
+├ ○ /404                                   182 B           157 kB
+└ λ /docs/[...docs]                        7.42 kB         164 kB
++ First Load JS shared by all              158 kB
+  ├ chunks/framework-d5f8ed288849d546.js   45.4 kB
+  ├ chunks/main-f24f2d4e9462fc82.js        26.7 kB
+  ├ chunks/pages/_app-9374d78f071840c6.js  84 kB
+  ├ chunks/webpack-b4e069b4701168b7.js     866 B
+  └ css/ce0454f48684c0d0.css               747 B
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+

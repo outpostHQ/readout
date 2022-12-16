@@ -14,10 +14,10 @@ export function extractQueryParams(context: GetServerSidePropsContext) {
     repoOwner = context?.params?.docs[0];
     repoName = context?.params?.docs[1];
     if (typeof context?.params?.docs === "string") {
-      pageName = context?.params?.docs[2];
+      pageName = context?.params?.docs[3];
     } else {
-      pageName = context?.params?.docs.slice(2).join("/");
+      pageName = context?.params?.docs.slice(3).join("/");
     }
   }
-return {repoOwner, repoName, pageName}
+  return { repoOwner, repoName, pageName };
 }

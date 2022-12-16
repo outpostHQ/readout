@@ -5,13 +5,13 @@ import {
 } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { bundle } from "../lib/bundler/bundler";
+import { bundle } from "../../lib/bundler/bundler";
 import { getMDXComponent } from "mdx-bundler/client";
 import { Block, Flex } from "@cube-dev/ui-kit";
-import { getMdxContent } from "../lib/getMDXContent";
-import TableOfContents from "../components/TableOfContents";
-import { getConfig } from "../lib/getConfig";
-import { extractQueryParams } from "../utils/extractQueryParams";
+import { getMdxContent } from "../../lib/getMDXContent";
+import TableOfContents from "../../components/TableOfContents";
+import { getConfig } from "../../lib/getConfig";
+import { extractQueryParams } from "../../utils/extractQueryParams";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { repoOwner, repoName, pageName } = extractQueryParams(context);
