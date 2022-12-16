@@ -1,6 +1,8 @@
-# Read out
+# Readout
 
-Generate documentation out of static mdx files in your github repository.
+Build blazing fast docs with zero configuration.
+
+> Note: This project is under development, do not use it in production!
 
 ## Instructions
 
@@ -55,3 +57,9 @@ You can also have navigation groups which help you group several navigation link
   }
 }
 ```
+
+## License
+
+Readout is a project by [Outpost](https://outpost.run).
+
+Released under the MIT License.
