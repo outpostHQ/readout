@@ -71,7 +71,11 @@ function Docs({
     <Flex gap="2rem">
       <TableOfContents owner={repoOwner} repo={repoName} TOC={TOC} />
       <Flex flex="1">
-        <Block className="Outpost-generated" styles={{ maxWidth: "50rem" }}>
+        <Block
+          padding="2rem 1rem"
+          className="Outpost-generated"
+          styles={{ maxWidth: "50rem" }}
+        >
           <Component />
         </Block>
       </Flex>
