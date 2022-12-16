@@ -19,9 +19,9 @@ Add mdx file in the
 ```json
 {
   "navigation": {
-    "navLinks": [
-      { "name": "outside One", "path": "outside_one.mdx" },
-      { "name": "outside two", "path": "outside_two.mdx" }
+    "anchors": [
+      { "name": "outside One", "href": "https://outpost.run" },
+      { "name": "outside two", "href": "https://controlplane.com" }
     ]
   }
 }
