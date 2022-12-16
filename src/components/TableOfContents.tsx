@@ -33,6 +33,7 @@ const TableOfContents = ({
       width="16rem"
       flow="column"
       gap="0.5rem"
+      padding="0 1rem"
     >
       <Flex gap="0.5rem" flow="column">
         {navLinks.map((i) => {
@@ -64,7 +65,7 @@ const TableOfContents = ({
                       width: "100%",
                     }}
                   >
-                    {i.name}
+                    Group {i.name} {">"}
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel style={{ marginTop: "1rem" }}>
