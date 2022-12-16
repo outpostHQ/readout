@@ -1,29 +1,82 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { bundle } from "../lib/bundler/bundler";
+import { getMDXComponent } from "mdx-bundler/client";
+import { Block, Flex } from "@cube-dev/ui-kit";
+import { getMdxContent } from "../lib/getMDXContent";
+import TableOfContents from "../components/TableOfContents";
+import { getConfig } from "../lib/getConfig";
 
-export async function getServerSideProps() {
-  const page = bundle(`# this is a markdown file`);
-  console.log(page);
-  return { props: { name: "taran" } };
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  let repoOwner = "";
+  let repoName = "";
+  let pageName = "index";
+
+  if (context?.params?.docs?.length === 2) {
+    repoOwner = context?.params?.docs[0];
+    repoName = context?.params?.docs[1];
+  }
+
+  if (context?.params?.docs != null && context?.params?.docs?.length > 2) {
+    repoOwner = context?.params?.docs[0];
+    repoName = context?.params?.docs[1];
+    if (typeof context?.params?.docs === "string") {
+      pageName = context?.params?.docs[2];
+    } else {
+      pageName = context?.params?.docs.slice(2).join("/");
+    }
+  }
+
+  const mdx = await getMdxContent(repoOwner, repoName, pageName);
+  const config = await getConfig(repoOwner, repoName);
+
+  let TOC = JSON.parse(config).navigation;
+  let page = await bundle(mdx);
+
+  return {
+    props: {
+      homePage: JSON.stringify(page),
+      TOC,
+      repoName,
+      repoOwner,
+    } as const,
+  };
 }
 
-function Docs({ name }: InferGetServerSidePropsType<GetServerSideProps>) {
+function Docs({
+  homePage,
+  TOC,
+  repoName,
+  repoOwner,
+}: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
 
-  const [owner, setOwner] = useState<string>("");
-  const [repo, setRepo] = useState<string>("");
+  if (!repoOwner || !repoName) {
+    router.push("404");
+  }
 
-  useEffect(() => {
-    if (router.query.docs) {
-      setOwner(router.query.docs[0]);
-      setRepo(router.query.docs[1]);
-    }
-    console.log(owner, repo);
-  }, []);
+  let parsedName = JSON.parse(homePage);
 
-  return <div>{name}</div>;
+  const Component = useMemo(
+    () => getMDXComponent(parsedName.code),
+    [parsedName.code]
+  );
+
+  return (
+    <Flex gap="2rem">
+      <TableOfContents owner={repoOwner} repo={repoName} TOC={TOC} />
+      <Flex flex="1">
+        <Block className="Outpost-generated" styles={{ maxWidth: "50rem" }}>
+          <Component />
+        </Block>
+      </Flex>
+    </Flex>
+  );
 }
 
 export default Docs;
