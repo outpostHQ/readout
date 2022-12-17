@@ -1,14 +1,14 @@
 {
-    "name": "readout",
-    "private": true,
-    "version": "0.1.0",
-    "description": "",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "turbo dev",
-      "build": "turbo build"
-    },
-    "devDependencies": {
-      "turbo": "^1.6.3"
-    }
+  "name": "readout",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "turbo": "^1.6.3"
   }
+}

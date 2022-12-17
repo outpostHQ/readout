@@ -1,21 +1,44 @@
 {
-  "name": "readout",
-  "version": "0.1.0",
-  "description": "A CLI utility readout",
+  "name": "@readout/cli",
+  "version": "0.0.1",
+  "description": "The command-line interface (CLI) utility for Readout.",
+  "keywords": [
+    "readout",
+    "docs",
+    "documentation",
+    "mdx",
+    "theme",
+    "react",
+    "documentation-generator",
+    "cli",
+    "nextjs"
+  ],
+  "homepage": "https://github.com/outposthq/readout/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/outposthq/readout.git",
+    "directory": "packages/readout-cli"
+  },
+  "license": "MIT",
+  "author": "Outpost Innovation, Inc. (https://outpost.run)",
+  "sideEffects": false,
   "main": "index.js",
-  "dependencies": {
-    "typescript": "^4.5.4"
-  },
-  "scripts": {
-    "build": "tsc"
-  },
   "bin": "./dist/index.js",
   "files": [
     "dist",
     "LICENSE",
     "README.md"
   ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
   "devDependencies": {
     "@types/node": "^18.11.15"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

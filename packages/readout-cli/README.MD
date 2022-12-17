@@ -1,4 +1,4 @@
-# The official CLI Utitily for readout
+# The command-line interface (CLI) utility for Readout.
 
 ## License
 
