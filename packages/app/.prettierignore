@@ -1,0 +1,5 @@
+**/*.mdx
+**/generated/
+**/.chache
+**/snippet.*
+public/*
