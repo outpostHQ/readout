@@ -1,9 +1,21 @@
 {
-    "name": "readout",
-    "version": "0.1.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    }
+  "name": "readout",
+  "version": "0.1.0",
+  "description": "A CLI utility readout",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "bin": "./dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.11.15"
   }
+}
