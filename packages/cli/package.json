@@ -30,7 +30,9 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier 'src/**/*.{css,js,ts,tsx,mdx}' --write",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
     "typescript": "^4.5.4"

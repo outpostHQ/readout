@@ -6,7 +6,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "turbo clean && rm -rf node_modules",
+    "format": "turbo format"
   },
   "devDependencies": {
     "turbo": "^1.6.3"

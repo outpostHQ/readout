@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals", "react-app"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "@next/next/inline-script-id": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-useless-escape": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
+  }
+}
