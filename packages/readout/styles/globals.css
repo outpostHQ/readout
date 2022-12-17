@@ -5,6 +5,24 @@
   box-sizing: border-box;
 }
 
+.accordion-link {
+  padding: 8px 16px 8px 1rem;
+  display: block;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-link--icon {
+  padding: 8px 16px;
+  display: block;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-item--selected {
+  background-color: #5954aa;
+}
+
 .Outpost-generated section > h1,
 .Outpost-generated section > h2,
 .Outpost-generated section > h3 {

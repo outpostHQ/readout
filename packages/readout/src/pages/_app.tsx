@@ -1,12 +1,14 @@
 import "../../styles/globals.css";
 import type { AppProps } from "next/app";
-import { Root, SSRProvider } from "@cube-dev/ui-kit";
+import { BreakpointsProvider, Root, SSRProvider } from "@cube-dev/ui-kit";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Root>
+    <Root bodyStyles={{ "background-color": "#121312" }}>
       <SSRProvider>
-        <Component {...pageProps} />
+        <BreakpointsProvider value={[1140, 900, 500]}>
+          <Component {...pageProps} />
+        </BreakpointsProvider>
       </SSRProvider>
     </Root>
   );

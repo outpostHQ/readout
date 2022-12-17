@@ -7,11 +7,13 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import { bundle } from "../lib/bundler/bundler";
 import { getMDXComponent } from "mdx-bundler/client";
-import { Block, Flex } from "@cube-dev/ui-kit";
+import { Block, BreakpointsProvider, Flex } from "@cube-dev/ui-kit";
 import { getMdxContent } from "../lib/getMDXContent";
 import TableOfContents from "../components/TableOfContents";
 import { getConfig } from "../lib/getConfig";
 import { extractQueryParams } from "../utils/extractQueryParams";
+import Container from "../components/utils/utils";
+import Sidebar from "../components/docs/Sidebar";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { repoOwner, repoName, pageName } = extractQueryParams(context);
@@ -32,10 +34,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 function Docs({
-  resultMDX,
+  resultMDX = "",
   TOC,
-  repoName,
-  repoOwner,
+  repoName = "staraneer",
+  repoOwner = "blog",
 }: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
 
@@ -51,18 +53,26 @@ function Docs({
   );
 
   return (
-    <Flex gap="2rem">
-      <TableOfContents owner={repoOwner} repo={repoName} TOC={TOC} />
-      <Flex flex="1">
-        <Block
-          padding="2rem 1rem"
+    <Block color="#fff">
+      <Container flow="row" display="flex">
+        <Block hide={[false, false, true]}>
+          <Sidebar repoName={repoName} repoOwner={repoOwner} TOC={TOC} />
+        </Block>
+        <Flex
+          flow="column"
+          gap="40px"
           className="Outpost-generated"
-          styles={{ maxWidth: "50rem" }}
+          flex="1"
+          margin="0 0 100px 0"
+          padding={["50px 40px", "50px 40px", "20px 0"]}
         >
           <Component />
+        </Flex>
+        <Block hide={[false, true]}>
+          <Block />
         </Block>
-      </Flex>
-    </Flex>
+      </Container>
+    </Block>
   );
 }
 

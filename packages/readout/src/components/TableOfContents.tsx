@@ -1,12 +1,16 @@
 import { Block, Flex } from "@cube-dev/ui-kit";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useLayoutEffect, useState } from "react";
 import {
   Accordion,
   AccordionItem,
   AccordionItemButton,
   AccordionItemHeading,
   AccordionItemPanel,
+  AccordionItemState,
 } from "react-accessible-accordion";
+import { RiArrowDownSLine, RiArrowRightSLine } from "react-icons/ri";
 
 type navLinks = { name: string; path: string };
 
@@ -26,63 +30,60 @@ const TableOfContents = ({
     navLinks: navLinks[];
     groups: { name: string; navLinks: navLinks[] }[];
   } = TOC;
+
   return (
-    <Flex
-      height="max-content"
-      styles={{ position: "sticky", top: "1rem" }}
-      width="16rem"
-      flow="column"
-      gap="1rem"
-      padding="0 1rem"
-    >
-      {" "}
-      <Link href={`${owner}/${repo}`}>Home</Link>
-      <Flex gap="1rem" flow="column">
-        {navLinks.map((i) => {
-          return (
-            <Link
-              key={i.name}
-              href={`${owner}/${repo}/${i.path.replace(".mdx", "")}`}
-            >
-              {i.name}
-            </Link>
-          );
-        })}
-      </Flex>
+    <Flex>
       <Accordion
+        style={{ width: "100%" }}
         allowMultipleExpanded
         allowZeroExpanded
-        style={{ width: "100%" }}
       >
-        <Flex gap="1rem" flow="column" width="100%">
+        <Flex margin="20px 0" flow="column" gap="20px">
           {navGroups.map((i) => {
             return (
               <AccordionItem key={i.name}>
-                <AccordionItemHeading>
-                  <AccordionItemButton
-                    style={{
-                      padding: "0.5rem 1rem",
-                      backgroundColor: "#f2f2f2",
-                      cursor: "pointer",
-                      width: "100%",
-                    }}
-                  >
-                    Group {i.name} {">"}
+                <AccordionItemHeading style={{ cursor: "pointer" }}>
+                  <AccordionItemButton className="accordion-link accordion-link--icon">
+                    <Flex alignItems="center" gap="10px">
+                      <AccordionItemState>
+                        {({ expanded }) =>
+                          expanded ? (
+                            <RiArrowDownSLine size={"16px"} />
+                          ) : (
+                            <RiArrowRightSLine size={"16px"} />
+                          )
+                        }
+                      </AccordionItemState>{" "}
+                      <span>{i.name}</span>
+                    </Flex>
                   </AccordionItemButton>
                 </AccordionItemHeading>
-                <AccordionItemPanel style={{ marginTop: "1rem" }}>
-                  <Flex flow="column" gap="0.5rem">
+                <AccordionItemPanel>
+                  <Flex
+                    styles={{
+                      borderLeft: "1px solid #352D3B",
+                    }}
+                    flow="column"
+                    margin="20px 0 0 24px"
+                    gap="20px"
+                  >
                     {i.navLinks.map((j) => (
-                      <Block padding="0 0 0 2rem" key={j.name}>
-                        <Link
-                          href={`/${owner}/${repo}/${i.name}/${j.path.replace(
-                            ".mdx",
-                            ""
-                          )}`}
-                        >
-                          {j.name}
-                        </Link>
-                      </Block>
+                      <Link
+                        key={i.name}
+                        href={`/${owner}/${repo}/${i.name}/${j.path.replace(
+                          ".mdx",
+                          ""
+                        )}`}
+                        style={{
+                          marginLeft: "1rem",
+                          textAlign: "left",
+                          color: "#ccc",
+                          textDecoration: "none",
+                        }}
+                        className={`accordion-link `}
+                      >
+                        {j.name}
+                      </Link>
                     ))}
                   </Flex>
                 </AccordionItemPanel>

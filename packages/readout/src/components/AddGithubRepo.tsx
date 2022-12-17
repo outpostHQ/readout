@@ -22,18 +22,21 @@ function AddGithubRepo() {
   return (
     <Flex gap="1rem" flow="column">
       <TextInput
+        labelStyles={{ color: "#fff" }}
         value={githubUserName}
         onChange={setGithubUserName}
         label="Github Username"
         placeholder="staranbeer"
       />
       <TextInput
+        labelStyles={{ color: "#fff" }}
         value={githubRepo}
         onChange={setGithubRepo}
         label="Github Repository Name"
         placeholder="blog"
       />
       <Button
+        margin="1rem 0 0 0"
         onPress={() => handleSubmit(githubUserName, githubRepo)}
         type="primary"
       >
