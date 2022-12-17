@@ -3,8 +3,8 @@ import { Octokit } from "octokit";
 async function getMdxContent(
   owner: string,
   repoName: string,
-  page: string = "index",
-  path: string = "docs"
+  page = "index",
+  path = "docs"
 ) {
   const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
   let route = `/${path}/${page}.mdx`;
