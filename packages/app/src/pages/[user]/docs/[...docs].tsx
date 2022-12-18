@@ -1,30 +1,33 @@
-import { Block, Flex } from '@cube-dev/ui-kit';
-import { getMDXComponent } from 'mdx-bundler/client';
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
-import Sidebar from '../../components/docs/Sidebar';
-import Layout from '../../components/shared/Layout';
-import { ScrollSpy } from '../../components/utils/scrollSpy';
-import Container from '../../components/utils/utils';
-import { getConfig } from '../../lib/getConfig';
-import { getMdxContent } from '../../lib/getMDXContent';
+import { getMDXComponent } from 'mdx-bundler/client';
+import { Block, Flex } from '@cube-dev/ui-kit';
+import { getMdxContent } from '../../../lib/getMDXContent';
+import { getConfig } from '../../../lib/getConfig';
+import Container from '../../../components/utils/utils';
+import Sidebar from '../../../components/docs/Sidebar';
+import { ScrollSpy } from '../../../components/utils/scrollSpy';
+import Layout from '../../../components/shared/Layout';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const username: string = context.query.username! as string;
-  const repo: string = context.query.repo! as string;
+  const user = context.params?.user as string;
+  // @ts-ignore
+  const pageName = context.params?.docs?.join('/');
+  const repoOwner = user.split('-')[0];
+  const repoName = user.split('-')[1];
 
-  const page = await getMdxContent(username, repo);
-  const config = await getConfig(username, repo);
-
+  console.log(context.params);
+  const page = await getMdxContent(repoOwner, repoName, pageName);
+  const config = await getConfig(repoOwner, repoName);
   let TOC = JSON.parse(config).navigation;
 
   return {
     props: {
       resultMDX: JSON.stringify(page),
       TOC,
-      username,
-      repo,
+      repoName,
+      repoOwner,
     } as const,
   };
 }
@@ -54,7 +57,6 @@ function Docs({
           </Block>
           <Flex
             flow="column"
-            gap="2.5rem"
             className="Outpost-generated"
             flex="1"
             margin="0 0 100px 0"

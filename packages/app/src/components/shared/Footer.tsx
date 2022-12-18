@@ -3,7 +3,7 @@ import Container from '../utils/utils';
 
 function Footer() {
   return (
-    <Block styles={{ border: '1px solid #3E3E3E' }} padding="1.5rem 0">
+    <Block styles={{ borderTop: '1px solid #3E3E3E' }} padding="1.5rem 0">
       <Container>header</Container>
     </Block>
   );

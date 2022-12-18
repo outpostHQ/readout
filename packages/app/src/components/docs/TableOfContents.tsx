@@ -1,7 +1,5 @@
-import { Block, Flex } from '@cube-dev/ui-kit';
+import { Flex } from '@cube-dev/ui-kit';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useLayoutEffect, useState } from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -58,7 +56,7 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
                     {i.navLinks.map((j) => (
                       <Link
                         key={i.name}
-                        href={`/docs/${i.name}/${j.path.replace('.mdx', '')}`}
+                        href={`/${owner}-${repo}/docs/${i.name}/${j.path.replace('.mdx', '')}`}
                         style={{
                           marginLeft: '1rem',
                           textAlign: 'left',
