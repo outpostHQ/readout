@@ -1,10 +1,10 @@
-import { Block, Button, Flex, TextInput } from "@cube-dev/ui-kit";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import { Block, Button, Flex, TextInput } from '@cube-dev/ui-kit';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 function AddGithubRepo() {
-  const [githubUserName, setGithubUserName] = useState("");
-  const [githubRepo, setGithubRepo] = useState("");
+  const [githubUserName, setGithubUserName] = useState('');
+  const [githubRepo, setGithubRepo] = useState('');
   const [valid, setValid] = useState(true);
 
   const router = useRouter();
@@ -13,23 +13,23 @@ function AddGithubRepo() {
       return setValid(false);
     }
 
-    router.push(`${githubUserName}/${githubRepo}`);
+    router.push({ pathname: '/docs', query: { username: githubUserName, repo: githubRepo } });
 
-    setGithubUserName("");
-    setGithubRepo("");
+    setGithubUserName('');
+    setGithubRepo('');
   }
 
   return (
     <Flex gap="1rem" flow="column">
       <TextInput
-        labelStyles={{ color: "#fff" }}
+        labelStyles={{ color: '#fff' }}
         value={githubUserName}
         onChange={setGithubUserName}
         label="Github Username"
         placeholder="staranbeer"
       />
       <TextInput
-        labelStyles={{ color: "#fff" }}
+        labelStyles={{ color: '#fff' }}
         value={githubRepo}
         onChange={setGithubRepo}
         label="Github Repository Name"

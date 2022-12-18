@@ -1,7 +1,7 @@
-import { Block, Flex } from "@cube-dev/ui-kit";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useLayoutEffect, useState } from "react";
+import { Block, Flex } from '@cube-dev/ui-kit';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useLayoutEffect, useState } from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -9,20 +9,12 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
   AccordionItemState,
-} from "react-accessible-accordion";
-import { RiArrowDownSLine, RiArrowRightSLine } from "react-icons/ri";
+} from 'react-accessible-accordion';
+import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 type navLinks = { name: string; path: string };
 
-const TableOfContents = ({
-  owner,
-  repo,
-  TOC,
-}: {
-  owner: string;
-  repo: string;
-  TOC: any;
-}) => {
+const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TOC: any }) => {
   const {
     navLinks,
     groups: navGroups,
@@ -33,27 +25,23 @@ const TableOfContents = ({
 
   return (
     <Flex>
-      <Accordion
-        style={{ width: "100%" }}
-        allowMultipleExpanded
-        allowZeroExpanded
-      >
+      <Accordion style={{ width: '100%' }} allowMultipleExpanded allowZeroExpanded>
         <Flex margin="20px 0" flow="column" gap="20px">
           {navGroups.map((i) => {
             return (
               <AccordionItem key={i.name}>
-                <AccordionItemHeading style={{ cursor: "pointer" }}>
+                <AccordionItemHeading style={{ cursor: 'pointer' }}>
                   <AccordionItemButton className="accordion-link accordion-link--icon">
                     <Flex alignItems="center" gap="10px">
                       <AccordionItemState>
                         {({ expanded }) =>
                           expanded ? (
-                            <RiArrowDownSLine size={"16px"} />
+                            <RiArrowDownSLine size={'16px'} />
                           ) : (
-                            <RiArrowRightSLine size={"16px"} />
+                            <RiArrowRightSLine size={'16px'} />
                           )
                         }
-                      </AccordionItemState>{" "}
+                      </AccordionItemState>{' '}
                       <span>{i.name}</span>
                     </Flex>
                   </AccordionItemButton>
@@ -61,7 +49,7 @@ const TableOfContents = ({
                 <AccordionItemPanel>
                   <Flex
                     styles={{
-                      borderLeft: "1px solid #352D3B",
+                      borderLeft: '1px solid #352D3B',
                     }}
                     flow="column"
                     margin="20px 0 0 24px"
@@ -70,15 +58,12 @@ const TableOfContents = ({
                     {i.navLinks.map((j) => (
                       <Link
                         key={i.name}
-                        href={`/${owner}/${repo}/${i.name}/${j.path.replace(
-                          ".mdx",
-                          ""
-                        )}`}
+                        href={`/docs/${i.name}/${j.path.replace('.mdx', '')}`}
                         style={{
-                          marginLeft: "1rem",
-                          textAlign: "left",
-                          color: "#ccc",
-                          textDecoration: "none",
+                          marginLeft: '1rem',
+                          textAlign: 'left',
+                          color: '#ccc',
+                          textDecoration: 'none',
                         }}
                         className={`accordion-link `}
                       >
