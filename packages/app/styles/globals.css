@@ -3,6 +3,14 @@
 *::after {
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .accordion-link {
@@ -26,8 +34,7 @@
 .Outpost-generated section > h1,
 .Outpost-generated section > h2,
 .Outpost-generated section > h3 {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .Outpost-generated h1 {
@@ -63,12 +70,11 @@
 
 /* prism code styles */
 
-.Outpost-generated code[class*="language-"],
-.Outpost-generated pre[class*="language-"] {
+.Outpost-generated code[class*='language-'],
+.Outpost-generated pre[class*='language-'] {
   color: #f2c992;
   background: 0 0;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -83,15 +89,18 @@
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  background-color: #171817;
 }
-.Outpost-generated pre[class*="language-"] {
+.Outpost-generated pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
+  border: 1px solid #3e3e3e;
+  margin: 1rem 0;
 }
 
-.Outpost-generated :not(pre) > code[class*="language-"] {
+.Outpost-generated :not(pre) > code[class*='language-'] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
