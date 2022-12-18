@@ -1,8 +1,10 @@
 import { Block, Button, Content, Flex, Paragraph } from '@cube-dev/ui-kit';
+import { useRouter } from 'next/router';
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import { RiArrowUpCircleLine } from 'react-icons/ri';
 
 export function ScrollSpy(): JSX.Element {
+  const router = useRouter();
   const [headings, setHeadings] = useState<string[]>();
   const [active, setActive] = useState<string>('');
 
@@ -15,7 +17,8 @@ export function ScrollSpy(): JSX.Element {
       })
       .filter((i) => i.length > 0);
     setHeadings(table);
-  }, []);
+  }, [router.asPath]);
+
   const backToTop = useCallback(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -97,7 +100,7 @@ export function ScrollSpy(): JSX.Element {
               style={{ color: elem === active ? '#7F7AFF' : '#ffffff' }}
               href={`#${elem.split(' ').join('-')}`}
             >
-              {elem}
+              {elem.length < 24 ? elem : elem.slice(0, 24) + '...'}
             </a>
           </Paragraph>
         ))}

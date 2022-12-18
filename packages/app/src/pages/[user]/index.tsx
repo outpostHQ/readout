@@ -17,6 +17,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const page = await getMdxContent(username, repo);
   const config = await getConfig(username, repo);
 
+  console.log(username, repo);
   let TOC = JSON.parse(config).navigation;
   return {
     props: {
@@ -31,12 +32,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 function Docs({
   resultMDX = '',
   TOC,
-  repoName = 'staraneer',
-  repoOwner = 'blog',
+  username,
+  repo,
 }: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
 
-  if (!repoOwner || !repoName) {
+  if (!username || !repo) {
     router.push('404');
   }
 
@@ -49,7 +50,7 @@ function Docs({
       <Block color="#fff">
         <Container flow="row" display="flex">
           <Block hide={[false, false, true]}>
-            <Sidebar repoName={repoName} repoOwner={repoOwner} TOC={TOC} />
+            <Sidebar repoName={repo} repoOwner={username} TOC={TOC} />
           </Block>
           <Flex
             flow="column"

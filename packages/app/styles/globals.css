@@ -89,14 +89,14 @@ a:hover {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  background-color: #171817;
 }
-.Outpost-generated pre[class*='language-'] {
+.Outpost-generated pre {
+  background-color: #171817 !important;
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
-  border: 1px solid #3e3e3e;
+  border: 1px solid #3e3e3e !important;
   margin: 1rem 0;
 }
 
