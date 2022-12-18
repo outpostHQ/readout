@@ -1,10 +1,13 @@
-import { Octokit } from "octokit";
+import { Octokit } from 'octokit';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+import { bundle } from './bundler/bundler';
 
 async function getMdxContent(
   owner: string,
   repoName: string,
-  page: string = "index",
-  path: string = "docs"
+  page: string = 'index',
+  path: string = 'docs'
 ) {
   const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
   let route = `/${path}/${page}.mdx`;
@@ -13,11 +16,21 @@ async function getMdxContent(
     repo: repoName,
     path: route,
   });
+  let mdx;
+
   if (Array.isArray(data)) {
-    return Buffer.from(data[0].content!, "base64").toString("ascii");
+    mdx = Buffer.from(data[0].content!, 'base64').toString('ascii');
   } else {
-    return Buffer.from(data?.content, "base64").toString("ascii");
+    mdx = Buffer.from(data?.content, 'base64').toString('ascii');
   }
+
+  let pageContent = await bundle(mdx, {
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+
+    remarkPlugins: [],
+    headerDepth: 3,
+  });
+  return pageContent;
 }
 
 export { getMdxContent };
