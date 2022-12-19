@@ -1,10 +1,13 @@
-import { Block } from '@cube-dev/ui-kit';
+import { Block, Flex } from '@cube-dev/ui-kit';
 import TableOfContents from './TableOfContents';
 import SidebarSearch from './SidebarSearch';
+import SidebarAnchors from './SidebarAnchors';
 
 function Sidebar({ repoOwner, repoName, TOC }: { repoOwner: string; repoName: string; TOC: any }) {
   return (
-    <Block
+    <Flex
+      flow="column"
+      gap="1.25rem"
       style={{
         overflowY: 'scroll',
         position: 'sticky',
@@ -17,8 +20,9 @@ function Sidebar({ repoOwner, repoName, TOC }: { repoOwner: string; repoName: st
       }}
     >
       <SidebarSearch />
+      <SidebarAnchors />
       <TableOfContents owner={repoOwner} repo={repoName} TOC={TOC} />
-    </Block>
+    </Flex>
   );
 }
 
