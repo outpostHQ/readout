@@ -9,10 +9,13 @@
 a,
 a:focus,
 a:hover {
-  text-decoration: none;
   color: #ffffff;
+  text-decoration: none;
 }
 
+a:hover {
+  text-underline-offset: 0.4rem;
+}
 .accordion-link {
   padding: 8px 16px 8px 1rem;
   display: block;
@@ -91,14 +94,14 @@ a:hover {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  overflow: hidden !important;
 }
 .Outpost-generated pre {
   background-color: #171817 !important;
   padding: 1em;
-  overflow: auto;
   border-radius: 0.3em;
+  overflow-x: scroll !important;
   border: 1px solid #3e3e3e !important;
-  /* margin-top: 2rem; */
 }
 
 .Outpost-generated :not(pre) > code[class*='language-'] {
