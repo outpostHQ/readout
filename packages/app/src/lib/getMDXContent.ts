@@ -9,7 +9,6 @@ async function getMdxContent(
   page: string = 'index',
   path: string = 'docs'
 ) {
-  console.log('path', path, page);
   const octokit = new Octokit({ auth: process.env.GITHUB_PAT });
   let route = `/${path}/${page}.mdx`;
   const { data }: any = await octokit.rest.repos.getContent({

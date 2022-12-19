@@ -13,7 +13,7 @@ function AddGithubRepo() {
       return setValid(false);
     }
 
-    router.push(`${githubUserName}-${githubRepo}/docs`);
+    router.push(`${githubUserName}-${githubRepo}`);
 
     setGithubUserName('');
     setGithubRepo('');

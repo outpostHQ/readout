@@ -44,8 +44,8 @@ function Docs({
     <DocsLayout
       pageTitle={parsedPage.frontmatter.title}
       TOC={TOC}
-      repoName={username}
-      repoOwner={repo}
+      repoName={repo}
+      repoOwner={username}
     >
       <Component />
     </DocsLayout>

@@ -20,7 +20,6 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
     navLinks: navLinks[];
     groups: { name: string; navLinks: navLinks[] }[];
   } = TOC;
-
   return (
     <Flex>
       <Accordion style={{ width: '100%' }} allowMultipleExpanded allowZeroExpanded>

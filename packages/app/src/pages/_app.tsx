@@ -1,6 +1,7 @@
 import '../../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { BreakpointsProvider, Root, SSRProvider } from '@cube-dev/ui-kit';
+import Layout from '../components/shared/Layouts/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

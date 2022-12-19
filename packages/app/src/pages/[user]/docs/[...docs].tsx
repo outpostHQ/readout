@@ -16,7 +16,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const page = await getMdxContent(repoOwner, repoName, pageName);
   const config = await getConfig(repoOwner, repoName);
   let TOC = JSON.parse(config).navigation;
-
   return {
     props: {
       resultMDX: JSON.stringify(page),
@@ -46,8 +45,8 @@ function Docs({
     <DocsLayout
       pageTitle={parsedPage.frontmatter.title}
       TOC={TOC}
-      repoName={repoName}
       repoOwner={repoOwner}
+      repoName={repoName}
     >
       <Component />
     </DocsLayout>
