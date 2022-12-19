@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import Sidebar from '../../docs/Sidebar';
 import { ScrollSpy } from '../../utils/scrollSpy';
 import Container from '../../utils/utils';
+import Footer from '../Footer';
 import Layout from './Layout';
 
 function DocsLayout({
@@ -31,10 +32,11 @@ function DocsLayout({
             flex="1"
             gap="2.5rem"
             margin="0 0 0 0"
-            padding={['50px 40px', '50px 40px', '20px 0']}
+            padding={['50px 50px 0 50px 40px', '50px 50px 0 50px 40px', '20px 0']}
           >
             <h1>{pageTitle}</h1>
             {children}
+            <Footer />
           </Flex>
           <Block hide={[false, true]}>
             <ScrollSpy />

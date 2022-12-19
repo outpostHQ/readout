@@ -10,7 +10,6 @@ function Layout({ children }: { children: ReactNode }) {
       <ConfigProvider>
         <Header />
         <Block flex="1">{children}</Block>
-        <Footer />
       </ConfigProvider>
     </Flex>
   );
