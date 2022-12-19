@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useReducer, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useReducer, useState } from 'react';
 
 const defaultContext = {
   name: 'Readout',
@@ -78,9 +78,9 @@ const ConfigContext = createContext<
   [typeof defaultContext, Dispatch<SetStateAction<typeof defaultContext>>]
 >([defaultContext, () => {}]);
 
-function ConfigProvider() {
+export function ConfigProvider({ children }: { children: ReactNode }) {
   const [values, setValues] = useState(defaultContext);
-  return <ConfigContext.Provider value={[values, setValues]}>ConfigContext</ConfigContext.Provider>;
+  return <ConfigContext.Provider value={[values, setValues]}>{children}</ConfigContext.Provider>;
 }
 
 export default ConfigContext;
