@@ -1,4 +1,4 @@
-import { Flex } from '@cube-dev/ui-kit';
+import { Flex, Paragraph } from '@cube-dev/ui-kit';
 import Link from 'next/link';
 import {
   Accordion,
@@ -24,7 +24,7 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
   return (
     <Flex>
       <Accordion style={{ width: '100%' }} allowMultipleExpanded allowZeroExpanded>
-        <Flex margin="20px 0" flow="column" gap="20px">
+        <Flex flow="column" gap="20px">
           {navGroups.map((i) => {
             return (
               <AccordionItem key={i.name}>
@@ -40,7 +40,9 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
                           )
                         }
                       </AccordionItemState>{' '}
-                      <span>{i.name}</span>
+                      <Paragraph styles={{ fontWeight: '500', color: '#ffffff' }}>
+                        {i.name}
+                      </Paragraph>
                     </Flex>
                   </AccordionItemButton>
                 </AccordionItemHeading>
@@ -50,7 +52,7 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
                       borderLeft: '1px solid #352D3B',
                     }}
                     flow="column"
-                    margin="20px 0 0 24px"
+                    margin="0 0 0 24px"
                     gap="20px"
                   >
                     {i.navLinks.map((j) => (
