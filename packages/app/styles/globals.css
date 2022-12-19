@@ -31,10 +31,10 @@ a:hover {
   background-color: #5954aa;
 }
 
-.Outpost-generated section > h1,
-.Outpost-generated section > h2,
-.Outpost-generated section > h3 {
-  margin: 1rem 0;
+.Outpost-generated section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .Outpost-generated h1 {
@@ -54,6 +54,7 @@ a:hover {
   font-weight: 600;
   line-height: 32px;
 }
+
 .Outpost-generated h3 {
   margin: 0;
   font-size: 22px;
@@ -66,6 +67,7 @@ a:hover {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  color: #f9f9fe;
 }
 
 /* prism code styles */
@@ -74,8 +76,8 @@ a:hover {
 .Outpost-generated pre[class*='language-'] {
   color: #f2c992;
   background: 0 0;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-size: 1rem;
+  font-weight: 500;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -93,11 +95,10 @@ a:hover {
 .Outpost-generated pre {
   background-color: #171817 !important;
   padding: 1em;
-  margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
   border: 1px solid #3e3e3e !important;
-  margin: 1rem 0;
+  /* margin-top: 2rem; */
 }
 
 .Outpost-generated :not(pre) > code[class*='language-'] {

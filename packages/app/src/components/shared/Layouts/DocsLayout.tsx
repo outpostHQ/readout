@@ -29,7 +29,8 @@ function DocsLayout({
             flow="column"
             className="Outpost-generated"
             flex="1"
-            margin="0 0 100px 0"
+            gap="2.5rem"
+            margin="0 0 0 0"
             padding={['50px 40px', '50px 40px', '20px 0']}
           >
             <h1>{pageTitle}</h1>
