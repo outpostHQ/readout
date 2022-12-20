@@ -1,4 +1,4 @@
-import { Block, Flex } from '@cube-dev/ui-kit';
+import { Flex } from '@cube-dev/ui-kit';
 import TableOfContents from './TableOfContents';
 import SidebarSearch from './SidebarSearch';
 import SidebarAnchors from './SidebarAnchors';

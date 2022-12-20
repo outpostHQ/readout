@@ -2,7 +2,7 @@ import { Block, Button, Flex, Paragraph } from '@cube-dev/ui-kit';
 import Link from 'next/link';
 import { useContext } from 'react';
 import ConfigContext from '../../context/ConfigContext';
-import Container from '../utils/utils';
+import Container from '../utils/containers';
 
 function Header() {
   const [values] = useContext(ConfigContext);
