@@ -2,7 +2,7 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useReducer, useStat
 
 const defaultContext = {
   name: 'Readout',
-  customDomain: 'xyz.forneu.com',
+  customDomain: 'https://xyz.forneu.com',
   logo: {
     light: '/logo/light.svg',
     dark: '/logo/dark.svg',
