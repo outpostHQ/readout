@@ -1,5 +1,4 @@
 import { Flex, Paragraph } from '@cube-dev/ui-kit';
-import Link from 'next/link';
 import {
   Accordion,
   AccordionItem,
@@ -9,6 +8,7 @@ import {
   AccordionItemState,
 } from 'react-accessible-accordion';
 import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
+import NavLink from '../utils/NavLink';
 
 type navLinks = { name: string; path: string };
 
@@ -55,19 +55,13 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
                     gap="20px"
                   >
                     {i.navLinks.map((j) => (
-                      <Link
+                      <NavLink
                         key={i.name}
                         href={`/${owner}-${repo}/docs/${i.name}/${j.path.replace('.mdx', '')}`}
-                        style={{
-                          marginLeft: '1rem',
-                          textAlign: 'left',
-                          color: '#ccc',
-                          textDecoration: 'none',
-                        }}
-                        className={`accordion-link `}
+                        className="accordion-link"
                       >
                         {j.name}
-                      </Link>
+                      </NavLink>
                     ))}
                   </Flex>
                 </AccordionItemPanel>

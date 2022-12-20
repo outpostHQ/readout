@@ -1,7 +1,7 @@
 import { Block, Flex } from '@cube-dev/ui-kit';
 import { useContext, useState } from 'react';
 import ConfigContext from '../../context/ConfigContext';
-import Container from '../utils/utils';
+import Container from '../utils/containers';
 import { RiGithubLine, RiDiscordLine, RiTwitterLine } from 'react-icons/ri';
 function Footer() {
   const [{ footerSocials }] = useContext(ConfigContext);

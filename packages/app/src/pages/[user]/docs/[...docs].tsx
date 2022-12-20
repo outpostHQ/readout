@@ -5,6 +5,8 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { getMdxContent } from '../../../lib/getMDXContent';
 import { getConfig } from '../../../lib/getConfig';
 import DocsLayout from '../../../components/shared/Layouts/DocsLayout';
+import { Block } from '@cube-dev/ui-kit';
+import Sidebar from '../../../components/docs/Sidebar';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const user = context.params?.user as string;
