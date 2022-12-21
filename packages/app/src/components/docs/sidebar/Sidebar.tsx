@@ -1,7 +1,7 @@
 import { Flex } from '@cube-dev/ui-kit';
-import TableOfContents from './TableOfContents';
-import SidebarSearch from './SidebarSearch';
 import SidebarAnchors from './SidebarAnchors';
+import SidebarSearch from './SidebarSearch';
+import TableOfContents from './TableOfContents';
 
 function Sidebar({ repoOwner, repoName, TOC }: { repoOwner: string; repoName: string; TOC: any }) {
   return (

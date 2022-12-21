@@ -1,6 +1,6 @@
 import { Block, Flex } from '@cube-dev/ui-kit';
 import { ReactNode } from 'react';
-import Sidebar from '../../docs/Sidebar';
+import Sidebar from '../../docs/sidebar/Sidebar';
 import Container from '../../utils/containers';
 import { ScrollSpy } from '../../utils/scrollSpy';
 import Footer from '../Footer';
