@@ -8,7 +8,7 @@ import {
   AccordionItemState,
 } from 'react-accessible-accordion';
 import { RiArrowDownSLine, RiArrowRightSLine } from 'react-icons/ri';
-import NavLink from '../utils/NavLink';
+import NavLink from '../../utils/NavLink';
 
 type navLinks = { name: string; path: string };
 

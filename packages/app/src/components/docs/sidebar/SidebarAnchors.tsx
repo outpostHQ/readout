@@ -1,7 +1,7 @@
 import { Flex, Paragraph } from '@cube-dev/ui-kit';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-import ConfigContext from '../../context/ConfigContext';
+import ConfigContext from '../../../context/ConfigContext';
 
 function SidebarAnchors() {
   const [{ anchors }] = useContext(ConfigContext);
