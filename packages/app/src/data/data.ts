@@ -52,26 +52,24 @@ Attempted murder? Now honestly, what is that? Do they give a Nobel Prize for att
 `;
 
 export const TOC = {
-  navigation: {
-    navLinks: [
-      { name: "outside One", path: "outside_one.mdx" },
-      { name: "outside two", path: "outside_two.mdx" },
-    ],
-    groups: [
-      {
-        name: "one",
-        navLinks: [
-          { name: "page One", path: "first_post.mdx" },
-          { name: "page two", path: "second_post.mdx" },
-        ],
-      },
-      {
-        name: "two",
-        navLinks: [
-          { name: "page One", path: "first_post.mdx" },
-          { name: "page two", path: "second_post.mdx" },
-        ],
-      },
-    ],
-  },
+  navLinks: [
+    { name: 'outside One', path: 'outside_one.mdx' },
+    { name: 'outside two', path: 'outside_two.mdx' },
+  ],
+  groups: [
+    {
+      name: 'one',
+      navLinks: [
+        { name: 'page One', path: 'first_post.mdx' },
+        { name: 'page two', path: 'second_post.mdx' },
+      ],
+    },
+    {
+      name: 'two',
+      navLinks: [
+        { name: 'page One', path: 'first_post.mdx' },
+        { name: 'page two', path: 'second_post.mdx' },
+      ],
+    },
+  ],
 };

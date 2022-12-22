@@ -1,7 +1,9 @@
+import { remarkCodeHike } from '@code-hike/mdx';
 import { Octokit } from 'octokit';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import { bundle } from './bundler/bundler';
+import theme from 'shiki/themes/material-palenight.json';
 
 async function getMdxContent(
   owner: string,
@@ -26,8 +28,7 @@ async function getMdxContent(
 
   let pageContent = await bundle(mdx, {
     rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-
-    remarkPlugins: [],
+    remarkPlugins: [[remarkCodeHike, { showCopyButton: true, theme }]],
     headerDepth: 3,
   });
   return pageContent;

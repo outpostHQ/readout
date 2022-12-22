@@ -1,3 +1,7 @@
+:root {
+  --accent-color: #7f7aff;
+}
+
 *,
 *::before,
 *::after {
@@ -34,12 +38,6 @@ a:hover {
   background-color: #5954aa;
 }
 
-.Outpost-generated section {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 .Outpost-generated h1 {
   margin: 0;
   font-size: 42px;
@@ -73,101 +71,10 @@ a:hover {
   color: #f9f9fe;
 }
 
-/* prism code styles */
-
-.Outpost-generated code[class*='language-'],
-.Outpost-generated pre[class*='language-'] {
-  color: #f2c992;
-  background: 0 0;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  overflow: hidden !important;
-}
-.Outpost-generated pre {
-  background-color: #171817 !important;
-  padding: 1em;
-  border-radius: 0.3em;
-  overflow-x: scroll !important;
-  border: 1px solid #3e3e3e !important;
+.ch-codeblock .ch-code-button {
+  display: none;
 }
 
-.Outpost-generated :not(pre) > code[class*='language-'] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
-.Outpost-generated .token.cdata,
-.Outpost-generated .token.comment,
-.Outpost-generated .token.doctype,
-.Outpost-generated .token.prolog {
-  color: #f2c992;
-}
-.Outpost-generated .token.punctuation {
-  color: #f2c992;
-}
-.Outpost-generated .token.namespace {
-  opacity: 0.7;
-}
-.Outpost-generated .token.constant,
-.Outpost-generated .token.deleted,
-.Outpost-generated .token.property,
-.Outpost-generated .token.symbol,
-.Outpost-generated .token.tag {
-  color: white;
-}
-.Outpost-generated .token.boolean,
-.Outpost-generated .token.number {
-  color: #ae81ff;
-}
-.Outpost-generated .token.attr-name,
-.Outpost-generated .token.builtin,
-.Outpost-generated .token.char,
-.Outpost-generated .token.inserted,
-.Outpost-generated .token.selector,
-.Outpost-generated .token.string {
-  color: #8ccdc0;
-}
-.Outpost-generated .language-css .token.string,
-.Outpost-generated .style .token.string,
-.Outpost-generated .token.entity,
-.Outpost-generated .token.operator,
-.Outpost-generated .token.url,
-.Outpost-generated .token.variable {
-  color: #bc92e0;
-}
-.Outpost-generated .token.atrule,
-.Outpost-generated .token.attr-value,
-.Outpost-generated .token.class-name,
-.Outpost-generated .token.function {
-  color: #bc92e0;
-}
-.Outpost-generated .token.keyword {
-  color: #66d9ef;
-}
-.Outpost-generated .token.important,
-.Outpost-generated .token.regex {
-  color: #fd971f;
-}
-.Outpost-generated .token.bold,
-.Outpost-generated .token.important {
-  font-weight: 700;
-}
-.Outpost-generated .token.italic {
-  font-style: italic;
-}
-.Outpost-generated .token.entity {
-  cursor: help;
+.ch-codeblock:hover .ch-code-button {
+  display: block;
 }

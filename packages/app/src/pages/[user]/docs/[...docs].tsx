@@ -3,10 +3,7 @@ import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { getMdxContent } from '../../../lib/getMDXContent';
-import { getConfig } from '../../../lib/getConfig';
 import DocsLayout from '../../../components/shared/Layouts/DocsLayout';
-import { Block } from '@cube-dev/ui-kit';
-import Sidebar from '../../../components/docs/Sidebar';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const user = context.params?.user as string;
@@ -16,12 +13,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const repoName = user.split('-')[1];
 
   const page = await getMdxContent(repoOwner, repoName, pageName);
-  const config = await getConfig(repoOwner, repoName);
-  let TOC = JSON.parse(config).navigation;
   return {
     props: {
       resultMDX: JSON.stringify(page),
-      TOC,
       repoName,
       repoOwner,
     } as const,
@@ -30,7 +24,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 function Docs({
   resultMDX = '',
-  TOC,
   repoName,
   repoOwner,
 }: InferGetServerSidePropsType<GetServerSideProps>) {
@@ -44,12 +37,7 @@ function Docs({
   const Component = useMemo(() => getMDXComponent(parsedPage.code), [parsedPage.code]);
 
   return (
-    <DocsLayout
-      pageTitle={parsedPage.frontmatter.title}
-      TOC={TOC}
-      repoOwner={repoOwner}
-      repoName={repoName}
-    >
+    <DocsLayout pageTitle={parsedPage.frontmatter.title || ''}>
       <Component />
     </DocsLayout>
   );

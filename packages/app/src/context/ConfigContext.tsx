@@ -1,28 +1,14 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useReducer, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
 const defaultContext = {
   name: 'Readout',
-  customDomain: 'https://xyz.forneu.com',
+  customDomain: '',
+  // how do we want to resolve assets?
   logo: {
     light: '/logo/light.svg',
-    dark: '/logo/dark.svg',
-    href: 'https://readout.com',
   },
   favicon: '/favicon.svg',
-  colors: {
-    primary: '#2AB673',
-    light: '#55D799',
-    dark: '#117866',
-    ultraLight: '#CCEFE9',
-    ultraDark: '#0D5E4F',
-    background: {
-      dark: '#171717',
-    },
-    anchors: {
-      from: '#117866',
-      to: '#2AB673',
-    },
-  },
+  accentColor: '#2AB673',
   topbarLinks: [
     {
       name: 'Community',

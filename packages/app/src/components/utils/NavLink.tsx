@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ReactNode, StyleHTMLAttributes } from 'react';
+import { ReactNode } from 'react';
 import { useCustomDomain } from '../../context/DomainContext';
 function NavLink({
   href,
@@ -13,7 +13,7 @@ function NavLink({
   className?: string;
 }) {
   const domain = useCustomDomain();
-  const baseUrl = domain ? domain : '/';
+  const baseUrl = domain ? domain : '';
   return (
     <Link
       href={`${baseUrl}${href}`}
