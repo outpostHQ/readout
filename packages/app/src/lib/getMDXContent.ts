@@ -21,14 +21,14 @@ async function getMdxContent(
     });
     let mdx;
     if (Array.isArray(data)) {
-      mdx = Buffer.from(data[0].content!, 'base64').toString('ascii');
+      mdx = Buffer.from(data[0].content!, 'base64').toString('utf-8');
     } else {
-      mdx = Buffer.from(data?.content, 'base64').toString('ascii');
+      mdx = Buffer.from(data?.content, 'base64').toString('utf-8');
     }
 
     let pageContent = await bundle(mdx, {
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-      remarkPlugins: [],
+      remarkPlugins: [[remarkCodeHike, { showCopyButton: true, theme }]],
       headerDepth: 3,
     });
     return pageContent;
