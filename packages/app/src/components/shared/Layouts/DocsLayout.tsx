@@ -1,5 +1,6 @@
 import { Block, Flex } from '@cube-dev/ui-kit';
 import { ReactNode } from 'react';
+import Pagination from '../../docs/Pagination';
 import { ScrollSpy } from '../../utils/scrollSpy';
 import Footer from '../Footer';
 
@@ -19,6 +20,7 @@ function DocsLayout({ pageTitle, children }: { pageTitle: string; children: Reac
         >
           <h1>{pageTitle}</h1>
           {children}
+          <Pagination />
           <Footer />
         </Flex>
         <Block hide={[false, true]}>
