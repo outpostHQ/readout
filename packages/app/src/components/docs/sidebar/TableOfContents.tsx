@@ -33,9 +33,9 @@ const TableOfContents = ({ owner, repo, TOC }: { owner: string; repo: string; TO
                       <AccordionItemState>
                         {({ expanded }) =>
                           expanded ? (
-                            <RiArrowDownSLine size={'16px'} />
+                            <RiArrowDownSLine color="#ffffff" size={'20px'} />
                           ) : (
-                            <RiArrowRightSLine size={'16px'} />
+                            <RiArrowRightSLine color="#ffffff" size={'20px'} />
                           )
                         }
                       </AccordionItemState>{' '}
