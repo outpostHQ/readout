@@ -13,6 +13,8 @@ function DocsLayout({ pageTitle, children }: { pageTitle: string; children: Reac
           flex="1"
           gap="2.5rem"
           margin="0 0 0 0"
+          overflow="hidden"
+          styles={{ maxWidth: ['668px', 'auto', '500px'] }}
           padding={['50px 50px 0 50px 40px', '50px 50px 0 50px 40px', '20px 0']}
         >
           <h1>{pageTitle}</h1>

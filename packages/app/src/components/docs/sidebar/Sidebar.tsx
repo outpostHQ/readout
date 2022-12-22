@@ -9,6 +9,7 @@ function Sidebar({ repoOwner, repoName, TOC }: { repoOwner: string; repoName: st
     <Flex
       flow="column"
       gap="1.25rem"
+      hide={[false, false, true]}
       style={{
         overflowY: 'scroll',
         position: 'sticky',
