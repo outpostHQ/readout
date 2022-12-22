@@ -97,7 +97,10 @@ export function ScrollSpy(): JSX.Element {
         {headings.map((elem) => (
           <Paragraph key={elem} style={{ fontSize: '14px', fontWeight: '400' }}>
             <a
-              style={{ color: elem === active ? '#7F7AFF' : '#ffffff' }}
+              style={{
+                color: elem === active ? 'var(--accent-color)' : '#ffffff',
+                transition: 'all 0.2s ease-in-out',
+              }}
               href={`#${elem.split(' ').join('-')}`}
             >
               {elem.length < 24 ? elem : elem.slice(0, 24) + '...'}
