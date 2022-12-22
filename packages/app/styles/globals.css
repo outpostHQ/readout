@@ -45,9 +45,14 @@ a:hover {
   font-weight: 600;
 }
 
-.Outpost-generated li:not(:last-child) {
-  margin: 1rem 0;
+.Outpost-generated section {
+  display: flex;
+  flex-flow: column;
+  gap: 1.25rem;
 }
+/* .Outpost-generated li:not(:last-child) {
+  margin: 1rem 0;
+} */
 
 .Outpost-generated h2 {
   margin: 0;
