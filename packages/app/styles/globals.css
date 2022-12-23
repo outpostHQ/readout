@@ -83,3 +83,7 @@ a:hover {
 .ch-codeblock:hover .ch-code-button {
   display: block;
 }
+
+code {
+  color: #f2f2f2 !important;
+}
