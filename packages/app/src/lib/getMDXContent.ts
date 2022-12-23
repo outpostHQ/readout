@@ -28,7 +28,8 @@ async function getMdxContent(
 
     let pageContent = await bundle(mdx, {
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-      remarkPlugins: [[remarkCodeHike, { showCopyButton: true, theme }]],
+      // remarkPlugins: [[remarkCodeHike, { showCopyButton: true, theme }]],
+      remarkPlugins: [],
       headerDepth: 3,
     });
     return pageContent;
