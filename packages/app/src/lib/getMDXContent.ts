@@ -2,8 +2,8 @@ import { Octokit } from 'octokit';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import { bundle } from './bundler/bundler';
-import theme from 'shiki/themes/material-palenight.json';
 import remarkCodeHike from '@code-hike/mdx';
+import theme from 'shiki/themes/material-palenight.json';
 
 async function getMdxContent(
   owner: string,
@@ -21,15 +21,15 @@ async function getMdxContent(
     });
     let mdx;
     if (Array.isArray(data)) {
-      mdx = Buffer.from(data[0].content!, 'base64').toString('ascii');
+      mdx = Buffer.from(data[0].content!, 'base64').toString('utf-8');
     } else {
-      mdx = Buffer.from(data?.content, 'base64').toString('ascii');
+      mdx = Buffer.from(data?.content, 'base64').toString('utf-8');
     }
 
     let pageContent = await bundle(mdx, {
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-      remarkPlugins: [[remarkCodeHike, { showCopyButton: true, theme }]],
-      // remarkPlugins: [],
+      // remarkPlugins: [remarkCodeHike, { showCopyButton: true, theme }],
+      remarkPlugins: [],
       headerDepth: 3,
     });
     return pageContent;
